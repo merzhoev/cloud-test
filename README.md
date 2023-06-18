@@ -15,3 +15,11 @@ npm i
 ```javascript
 npm run dev
 ```
+
+## Стек технологий
+- React
+- TypeScript
+- Redux-Toolkit
+- SCSS Modules
+- React hook form
+- Yup
