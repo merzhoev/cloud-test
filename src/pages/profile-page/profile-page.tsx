@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { formActions, selectFields } from '@/store/slices/form-slice/form-slice';
 import { PHONE_NUMBER_LENGTH } from '@/shared/ui/phone-input/phone-input.constants';
 import { UserInfo } from '@/components/user-info/user-info';
-import { ZeroStepFields } from '@/components/steps';
+import { ZeroStepFields, useStep } from '@/components/steps';
 import { Button, PhoneInput, TextField } from '@/shared/ui';
 import { routes } from '@/routes';
 
@@ -49,14 +49,11 @@ export function ProfilePage() {
     defaultValues: stepFields,
   });
   const [phoneNumber, setPhoneNumber] = useState(stepFields.phone);
+  const { onNextStep } = useStep({ currentStep });
 
   const onPhoneChange = (phone: string) => {
     setPhoneNumber(phone);
     setValue('phone', phone, { shouldValidate: true });
-  };
-
-  const onNextStep = () => {
-    dispatch(formActions.setStep(1));
   };
 
   const onFormSubmit: SubmitHandler<ZeroStepFields> = (data) => {
