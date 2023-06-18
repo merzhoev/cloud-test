@@ -46,21 +46,6 @@ export function SecondStep() {
   const { onPrevStep, onNextStep } = useStep({ currentStep });
 
   const [advantages, setAdvantages] = useState<string[]>(stepFields.advantages);
-  const [selectedCheckboxes, setSelectedCheckboxes] = useState<number[]>(stepFields.checkbox);
-
-  const onChangeCheckbox = (value: number) => {
-    const newValue = [...selectedCheckboxes];
-    const foundItemIdx = selectedCheckboxes.indexOf(value);
-
-    if (foundItemIdx === -1) {
-      newValue.push(value);
-    } else {
-      newValue.splice(foundItemIdx, 1);
-    }
-
-    setSelectedCheckboxes(newValue);
-    setValue('checkbox', newValue);
-  };
 
   const onRemoveAdvantage = (idx: number) => {
     if (advantages.length === 1) {
@@ -126,11 +111,10 @@ export function SecondStep() {
                 <Checkbox
                   id={`field-checkbox-group-option-${id}`}
                   key={id}
-                  name="checkbox"
                   label={label}
                   value={value}
-                  onChange={() => onChangeCheckbox(value)}
-                  checked={selectedCheckboxes.includes(value)}
+                  {...register('checkbox')}
+                  defaultChecked={stepFields.checkbox.includes(value)}
                 />
               ))}
             </div>
