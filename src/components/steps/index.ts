@@ -1,3 +1,5 @@
+export { useStep } from './hooks/use-step';
+
 export { Sex } from './steps.types';
 export type {
   ZeroStepFields,

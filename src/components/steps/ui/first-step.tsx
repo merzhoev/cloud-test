@@ -7,7 +7,7 @@ import { Button, Dropdown, TextField } from '@/shared/ui';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { formActions, selectFields } from '@/store/slices/form-slice/form-slice';
 import { useNavigate } from 'react-router-dom';
-import { FirstStepFields, Sex } from '../';
+import { FirstStepFields, Sex, useStep } from '../';
 import { routes } from '@/routes';
 
 import styles from '../steps.module.scss';
@@ -50,6 +50,7 @@ export function FirstStep() {
     resolver: yupResolver(validationSchema),
     defaultValues: stepFields,
   });
+  const { onPrevStep, onNextStep } = useStep({ currentStep, onPrev: () => navigate(routes.home) });
 
   const [dropdownValue, setDropdownValue] = useState<DropdownOption | null>(() => {
     const defaultOption = dropdownOptions.find(({ value }) => stepFields.sex === value);
@@ -60,15 +61,6 @@ export function FirstStep() {
   const onDropdownChange = (option: DropdownOption) => {
     setDropdownValue(option);
     setValue('sex', option.value as Sex, { shouldValidate: true });
-  };
-
-  const onPrevStep = () => {
-    dispatch(formActions.setStep(0));
-    navigate(routes.home);
-  };
-
-  const onNextStep = () => {
-    dispatch(formActions.setStep(2));
   };
 
   const onFormSubmit: SubmitHandler<FirstStepFields> = (data) => {
