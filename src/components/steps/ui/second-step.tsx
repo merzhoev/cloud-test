@@ -5,7 +5,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { formActions, selectFields } from '@/store/slices/form-slice/form-slice';
 import { Advantage, Button, Checkbox, Radio } from '@/shared/ui';
-import { SecondStepFields } from '../';
+import { SecondStepFields, useStep } from '../';
 import { useIsMounted } from '@/shared/hooks/use-is-mounted';
 import { ReactComponent as IconPlus } from '@/assets/plus.svg';
 
@@ -43,6 +43,7 @@ export function SecondStep() {
     resolver: yupResolver(validationSchema),
     defaultValues: stepFields,
   });
+  const { onPrevStep, onNextStep } = useStep({ currentStep });
 
   const [advantages, setAdvantages] = useState<string[]>(stepFields.advantages);
   const [selectedCheckboxes, setSelectedCheckboxes] = useState<number[]>(stepFields.checkbox);
@@ -80,14 +81,6 @@ export function SecondStep() {
     newValue[idx] = value;
 
     setAdvantages(newValue);
-  };
-
-  const onPrevStep = () => {
-    dispatch(formActions.setStep(1));
-  };
-
-  const onNextStep = () => {
-    dispatch(formActions.setStep(3));
   };
 
   const onFormSubmit: SubmitHandler<SecondStepFields> = (data) => {
@@ -150,7 +143,6 @@ export function SecondStep() {
                   id={`field-radio-group-option-${id}`}
                   key={id}
                   {...register('radio')}
-                  name="radio"
                   label={label}
                   value={value}
                   defaultChecked={stepFields.radio === value}

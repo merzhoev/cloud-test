@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { useDisclosure } from '@/shared/hooks/use-disclosure';
 import { Button, Textarea } from '@/shared/ui';
 import { formActions, selectFields, sendFormFields } from '@/store/slices/form-slice';
-import { ThirdStepFields } from '../';
+import { ThirdStepFields, useStep } from '../';
 import { ModalNotification } from '@/components/modal-notification/';
 import { routes } from '@/routes';
 
@@ -27,7 +27,7 @@ export function ThirdStep() {
   const stepFields = useAppSelector(selectFields<typeof currentStep>(currentStep));
   const { response, isLoading } = useAppSelector((state) => state.form);
   const {
-    setValue,
+    watch,
     register,
     handleSubmit,
     formState: { errors },
@@ -35,20 +35,10 @@ export function ThirdStep() {
     resolver: yupResolver(validationSchema),
     defaultValues: stepFields,
   });
+  const { onPrevStep } = useStep({ currentStep });
 
   const [isOpen, { open, close }] = useDisclosure(false);
-  const [aboutValue, setAboutValue] = useState(stepFields.about);
-
-  const onChangeAbout = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const { value } = e.target;
-
-    setAboutValue(value);
-    setValue('about', value, { shouldValidate: true });
-  };
-
-  const onPrevStep = () => {
-    dispatch(formActions.setStep(2));
-  };
+  const aboutValue = watch('about');
 
   const onFormSubmit: SubmitHandler<ThirdStepFields> = (data) => {
     dispatch(formActions.addFields(data));
@@ -87,7 +77,6 @@ export function ThirdStep() {
         id="field-about"
         {...register('about')}
         value={aboutValue}
-        onChange={onChangeAbout}
         label="About"
         placeholder="Placeholder"
         isError={Boolean(errors.about)}
