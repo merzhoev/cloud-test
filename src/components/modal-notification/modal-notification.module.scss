@@ -1,0 +1,62 @@
+.modalInfo {
+  width: 396px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .title {
+    text-align: center;
+    margin-right: 28px;
+    font: var(--font-lg);
+    font-weight: 600;
+    color: var(--color-black);
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    padding: 26px 0;
+  }
+
+  .statusIndicator {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .actions {
+    display: flex;
+    gap: 32px;
+  }
+
+  &--success {
+    .title {
+      text-align: center;
+    }
+
+    .statusIndicator {
+      background: rgba(5, 174, 113, 0.15);
+    }
+
+    .actions {
+      justify-content: center;
+    }
+  }
+
+  &--failed {
+    .title {
+      text-align: left;
+    }
+
+    .statusIndicator {
+      background: rgba(232, 78, 88, 0.15);
+    }
+
+    .actions {
+      justify-content: flex-end;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+.container {
+  --helper-text-color: rgba(0, 0, 0, 0.48);
+  --border-color: rgba(0, 0, 0, 0.16);
+  --padding: 12px;
+  --count-bottom: var(--padding);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+
+  .textarea {
+    width: inherit;
+    font: var(--font-md);
+    color: var(--color-black);
+    background-color: var(--color-white);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: var(--padding);
+    min-height: 84px;
+    outline: none;
+
+    ::placeholder {
+      color: rgba(0, 0, 0, 0.48);
+    }
+  }
+
+  .count {
+    position: absolute;
+    bottom: var(--count-bottom);
+    right: var(--padding);
+    color: var(--color-black);
+  }
+
+  .label {
+    font: var(--font-md);
+    color: var(--color-black);
+  }
+
+  .helperText {
+    font: var(--font-sm);
+    color: var(--helper-text-color);
+  }
+
+  &.error {
+    --count-bottom: calc(24px + var(--padding));
+    --helper-text-color: var(--color-attention);
+    --border-color: var(--color-attention);
+  }
+}

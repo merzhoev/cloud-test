@@ -1,0 +1,19 @@
+@import './reset.scss';
+@import './variables.scss';
+
+body {
+  font-family: var(--font-family-main);
+  background-color: var(--color-gray);
+}
+
+.app {
+  padding: 24px 0;
+}
+
+.wrapper {
+  max-width: 900px;
+  min-height: calc(100vh - 200px);
+  margin: 0 auto;
+  background-color: var(--color-white);
+  border-radius: 12px 12px 0 0;
+}

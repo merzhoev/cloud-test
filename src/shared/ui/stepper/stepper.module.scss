@@ -1,0 +1,68 @@
+.stepper {
+  position: relative;
+  height: 8px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.08);
+
+  .progress {
+    position: absolute;
+    height: inherit;
+    border-radius: inherit;
+    background-color: var(--color-primary);
+  }
+
+  .steps {
+    transform: translateY(-25%);
+    display: flex;
+    justify-content: space-between;
+
+    .step {
+      --step-size: 16px;
+      --content-color: #a6a6a6;
+
+      position: relative;
+      width: var(--step-size);
+      height: var(--step-size);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--content-color);
+
+      &Number {
+        position: absolute;
+        top: calc(var(--step-size) + 12px);
+        font: var(--font-md);
+        color: var(--content-color);
+      }
+
+      &--uncompleted {
+        --content-color: #a6a6a6;
+      }
+
+      &--process {
+        --content-color: var(--color-primary);
+
+        .stepNumber {
+          font-weight: 600;
+        }
+
+        &::after {
+          content: '';
+          width: 3px;
+          height: 3px;
+          border-radius: 50%;
+          background-color: var(--color-white);
+        }
+      }
+
+      &--completed {
+        --content-color: var(--color-primary);
+
+        &::after {
+          content: url('@/assets/check.svg');
+        }
+      }
+    }
+  }
+}

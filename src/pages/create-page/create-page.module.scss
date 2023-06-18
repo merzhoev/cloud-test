@@ -1,0 +1,11 @@
+.createPage {
+  padding: 62px 24px 80px 24px;
+
+  &Container {
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: calc(64px + 32px);
+  }
+}

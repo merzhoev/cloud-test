@@ -1,0 +1,25 @@
+:root {
+  // fonts
+  --font-family-main: 'Open Sans', sans-serif;
+
+  --font-size-sm: 12px;
+  --font-line-sm: 16px;
+  --font-sm: var(--font-size-sm) / var(--font-line-sm) var(--font-family-main);
+
+  --font-size-md: 14px;
+  --font-line-md: 20px;
+  --font-md: var(--font-size-md) / var(--font-line-md) var(--font-family-main);
+
+  --font-size-lg: 20px;
+  --font-line-lg: 26px;
+  --font-lg: var(--font-size-lg) / var(--font-line-lg) var(--font-family-main);
+
+  // colors
+  --color-primary: #5558fa;
+  --color-blue-light: #d5e4f7;
+  --color-black: #333333;
+  --color-blue-gray: #212830;
+  --color-white: #ffffff;
+  --color-gray: #f4f4f5;
+  --color-attention: #e84e58;
+}

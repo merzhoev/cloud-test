@@ -1,0 +1,57 @@
+.textField {
+  // default: size md
+  --text-font: var(--font-md);
+  --helper-text-font: var(--font-sm);
+  --height: 44px;
+  --text-color: var(--color-black);
+  --helper-text-color: rgba(0, 0, 0, 0.48);
+  --background-color: var(--color-white);
+  --border-color: rgba(0, 0, 0, 0.16);
+  --radius: 4px;
+  --px: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+
+  input {
+    width: inherit;
+    height: var(--height);
+    outline: none;
+    flex-shrink: 0;
+    font: var(--text-font);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 0 var(--px);
+
+    ::placeholder {
+      color: rgba(0, 0, 0, 0.48);
+    }
+
+    &:disabled {
+      --background-color: rgba(0, 0, 0, 0.04);
+      cursor: no-drop;
+    }
+  }
+
+  &Label {
+    font: var(--font-md);
+    color: var(--color-black);
+  }
+
+  &HelperText {
+    font: var(--helper-text-font);
+    color: var(--helper-text-color);
+  }
+
+  &--error {
+    --helper-text-color: var(--color-attention);
+    --border-color: var(--color-attention);
+  }
+
+  &-size--md {
+  }
+}

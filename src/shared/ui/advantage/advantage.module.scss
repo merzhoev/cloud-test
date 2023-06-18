@@ -1,0 +1,17 @@
+.advantage {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+
+  &Icon {
+    width: 23px;
+    height: 19px;
+    cursor: pointer;
+  }
+
+  &Error {
+    .advantageIcon {
+      margin-top: -24px;
+    }
+  }
+}

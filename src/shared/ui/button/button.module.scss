@@ -1,0 +1,46 @@
+.button {
+  // default: contained, primary, md
+  --px: 16px;
+  --height: 44px;
+  --font: var(--font-md);
+  --background-color: var(--color-primary);
+  --content-color: var(--color-white);
+  --radius: 4px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 0 var(--px);
+  height: var(--height);
+  font: var(--font);
+  background-color: var(--background-color);
+  color: var(--content-color);
+  border: 1.5px solid var(--background-color);
+  border-radius: var(--radius);
+  cursor: pointer;
+
+  svg path {
+    fill: var(--content-color);
+  }
+
+  &-variant--contained {
+  }
+
+  &-variant--outlined {
+    background: none;
+    --content-color: var(--background-color);
+  }
+
+  &-color--primary {
+  }
+
+  &-size--md {
+  }
+
+  &:disabled,
+  &[disabled] {
+    opacity: 0.5;
+    cursor: no-drop;
+  }
+}

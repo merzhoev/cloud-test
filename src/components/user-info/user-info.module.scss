@@ -1,0 +1,52 @@
+.user {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  &Avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background-color: var(--color-blue-light);
+
+    &Text {
+      font-size: 40px;
+      line-height: 52px;
+      color: var(--color-blue-gray);
+    }
+  }
+
+  &Info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &Title {
+    font: var(--font-lg);
+    font-weight: 600;
+    color: var(--color-black);
+  }
+
+  &Links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  &Link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    &Text {
+      font: var(--font-size-sm);
+      color: var(--color-primary);
+    }
+  }
+}

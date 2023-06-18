@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+
+  &Fields {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &Buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &Group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &Label {
+      font: var(--font-md);
+      color: var(--color-black);
+    }
+
+    &Button {
+      max-width: fit-content;
+    }
+  }
+}

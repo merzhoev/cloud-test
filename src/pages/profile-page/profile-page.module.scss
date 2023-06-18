@@ -1,0 +1,24 @@
+.profilePage {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+
+  &Form {
+    max-width: 400px;
+
+    &Fields {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    &Button {
+      margin-top: 48px;
+    }
+  }
+}
+
+.divider {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
