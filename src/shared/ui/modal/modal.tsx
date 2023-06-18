@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 import { createPortal } from 'react-dom';
-import { ReactComponent as IconClose } from '@/assets/Close.svg';
+import { ReactComponent as IconClose } from '@/assets/close.svg';
 
 import styles from './modal.module.scss';
 
